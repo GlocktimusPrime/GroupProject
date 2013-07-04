@@ -1,0 +1,7 @@
+::Honda Accord 2013
+::Accord
+::<i class='fam-money'></i>  , <i class='fam-package'></i>  ,<i class='fam-ruby'></i> ,
+::15000
+::alex
+::::userimg/alexHonda-Accord_Coupe_2013_photo_01.jpg
+::Cars;;
