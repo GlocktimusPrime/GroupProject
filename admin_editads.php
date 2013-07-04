@@ -4,14 +4,10 @@ if(!isset($_SESSION)) {
 }function readitems(){
 global $file;
 global $string;
-
- 
-
 $i=0;
 $r=0;
 $t=0;
 //List files in directory
-
 if ($dir = opendir('listingdata/')) {
 	$items = array();
 	while (false !== ($file = readdir($dir))) {
@@ -21,24 +17,16 @@ if ($dir = opendir('listingdata/')) {
 	}
 	closedir($dir);
 }
-	foreach($items as $item) {
-		
-	
+	foreach($items as $item) {	
 	$i++;
-
-	$editid = $item;
-
-	
-		
+	$editid = $item;	
 		$string = trim($item, "Listing Number;");
-
 		$string = trim($string, ".txt");
 $fp3 = fopen("listingdata/$item", 'r');
 if ($fp3) {
    $array = explode("::", fread($fp3, filesize("listingdata/$item")));
 }
-
-echo $array[1];
+echo $array[1]; #Write the name of each ad and then the id and a edit button
 echo"
 <form name='$string' method='post' action='edit_ad.php'>	<input type='hidden' name='idtoedit' value='$editid'/>
 	<div class=container>Listing ID:" . $string . "</div> 
@@ -54,25 +42,14 @@ echo"
 	global $string1;
 }
 	}
-
-
-
-
-	
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Admin - Edit Listings</title>
-
-							<? include 'authnav.php';?>
-						
-					
+							<? include 'authnav.php';?>					
 			<script type="text/javascript" src="/assets/js/bootstrap-dropdown.js"></script>
 		</div>
-	
-
-	
 <body>
 <?php
 admin_adminview();
@@ -84,36 +61,20 @@ function admin_adminview(){	   if (strlen(session_id()) < 1) {
                 <div class='row'>
                     <div class='well'>";
 				readitems();
- 
-			  
-
-
-
-
-					echo"
-	
-		</div></div></div>";
+					echo"</div></div></div>";
 			} 
-		else { 
-			print "		            <div class='container'>
+		else { #Part of the admin template, shows up if user isnt an admin
+			print "<div class='container'>
                 <div class='row'>
                     <div class='span12'>
-
 <div class=well>
-	
-
 </div>
 		</div></div></div>					"; 
 		}
-
 }
-	#if isset submit
-	
-	
-?>  <hr/>
+?> <hr/>
  <div class="container">
 <div class=" footer"> 
- 
 <span><a href="" ><span class="label label-inverse">Home</span></a></span>
 <span><a href="help.php" >Help</a></span>
 <span>
@@ -125,10 +86,3 @@ include('footer.php');
 	</div>
   </body>
 </html>
-
-
-<?
-	
-	
-			  
-	?>
