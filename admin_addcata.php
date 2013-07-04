@@ -1,5 +1,5 @@
 <?php 
-if(!isset($_SESSION)) {
+if(!isset($_SESSION)) {#start session if not started yet
      session_start();
 }
 $successmsg = "";
