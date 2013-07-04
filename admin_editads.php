@@ -55,11 +55,15 @@ echo"
 }
 	}
 
+
+
+
+	
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Admin - </title>
+	<title>Admin - Edit Listings</title>
 
 							<? include 'authnav.php';?>
 						

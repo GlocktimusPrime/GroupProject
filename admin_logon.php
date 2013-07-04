@@ -80,7 +80,7 @@ if($kw[0] == $id && $p == trim($kw[1], " " )&& $kw[4] == "1"){
                 <button class='btn btn-danger dropdown-toggle' data-toggle='dropdown'><i class='icon-th'></i> Cata Manager <span class='caret'></span></button>
                 <ul class='dropdown-menu'>
                   <li><a href='admin_addcata.php'>Add Cata</a></li>
-                  <li><a href='#'>Edit Cata</a></li>
+                  <li><a href='admin_editcata.php'>Edit Cata</a></li>
                   <li><a href='admin_removecata.php'>Remove Cata</a></li>
                   <li class='divider'></li>
                   <li><a href='#'>Mass Delete</a></li>
@@ -176,7 +176,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e5799', e
                 <button class='btn btn-danger dropdown-toggle' data-toggle='dropdown'><i class='icon-th'></i> Cata Manager <span class='caret'></span></button>
                 <ul class='dropdown-menu'>
                   <li><a href='admin_addcata.php'>Add Cata</a></li>
-                  <li><a href='#'>Edit Cata</a></li>
+                  <li><a href='admin_editcata.php'>Edit Cata</a></li>
                   <li><a href='admin_removecata.php'>Remove Cata</a></li>
                   <li class='divider'></li>
                   <li><a href='#'>Mass Delete</a></li>

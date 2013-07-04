@@ -4,7 +4,7 @@
 include 'title.php';
 
 include 'make_listing.php';
-$string1 = "Brand";	
+$string1 = "Barter Brothers";	
 
 $items = listingstoarray(" ");
 $t = 0;
