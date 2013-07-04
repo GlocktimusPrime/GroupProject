@@ -71,7 +71,7 @@ echo "
 				<li><a href='user_createlisting.php'><i class='fam-layout-edit'></i>Add Listing</a></li>
 			<li><a><i class='fam-connect'></i>Logged in as: " .  $_SESSION['username'] . " </a></li>			
 								<li><a href='logout.php'><i class='fam-disconnect'></i>Logout</a>		</li>";
-								if(isset( $_SESSION['isadmin']) == 'yes'){echo"	<li><a href='admin_logon.php'><i class='fam-shield'></i>Admin</a></li>";}else		{		echo"	<li><a href='user_cp.php'>User CP</a></li>";} echo"
+								if(isset( $_SESSION['isadmin']) == 'yes'){echo"	<li><a href='admin_logon.php'><i class='fam-shield'></i>Admin</a></li>";}else		{		echo"	<li><a href='user_cp.php'><i class='fam-cog'></i> User CP</a></li>";} echo"
 	
 	
 								</ul>										

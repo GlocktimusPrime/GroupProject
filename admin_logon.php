@@ -90,7 +90,7 @@ if($kw[0] == $id && $p == trim($kw[1], " " )&& $kw[4] == "1"){
                 <button class='btn btn-warning dropdown-toggle' data-toggle='dropdown'><i class='icon-tags'></i> Listing Manager <span class='caret'></span></button>
                 <ul class='dropdown-menu'>
                   <li><a href='admin_addlisting.php'>Add Listing</a></li>
-                  <li><a href='#'>Edit Listing</a></li>
+                  <li><a href='admin_editads.php'>Edit Listing</a></li>
                   <li><a href='admin_removead.php'>Remove Listing</a></li>
                   <li class='divider'></li>
                   <li><a href='#'>Mass Delete</a></li>
@@ -186,7 +186,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e5799', e
                 <button class='btn btn-warning dropdown-toggle' data-toggle='dropdown'><i class='icon-tags'></i> Listing Manager <span class='caret'></span></button>
                 <ul class='dropdown-menu'>
                   <li><a href='admin_addlisting.php'>Add Listing</a></li>
-                  <li><a href='#'>Edit Listing</a></li>
+                  <li><a href='admin_editads.php'>Edit Listing</a></li>
                   <li><a href='admin_removead.php'>Remove Listing</a></li>
                   <li class='divider'></li>
                   <li><a href='#'>Mass Delete</a></li>

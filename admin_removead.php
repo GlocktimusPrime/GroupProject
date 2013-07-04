@@ -29,7 +29,10 @@ if ($dir = opendir('listingdata/')) {
 	closedir($dir);
 }
 	foreach($items as $item) {
-		
+		$fp3 = fopen("listingdata/$item", 'r');
+if ($fp3) {
+   $array = explode("::", fread($fp3, filesize("listingdata/$item")));
+}
 	
 	$i++;
 
@@ -58,6 +61,7 @@ document.forms['$string'].submit();
     </script>";
 echo"
 <form name='$string' method='post' action='admin_removead.php'>	<input type='hidden' name='deletethis' value='$deleteid'/>
+	<div class=container>$array[1]</div> 
 	<div class=container>Listing ID:" . $string . "</div> 
 
 	<a  class='$string btn btn-danger btn-small'><i class='fam-cancel'></i> Delete</a>

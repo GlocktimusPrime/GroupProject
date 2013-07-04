@@ -56,7 +56,7 @@ document.forms['$string'].submit();
     </script>";
 echo"
 <form name='$string' method='post' action='admin_removecata.php'>	<input type='hidden' name='deletecata' value='$deleteid'/>
-	<div class=container>Listing ID:" . $string . "</div> 
+	<div class=container>Cata ID:" . $string . "</div> 
 
 	<a id='test' class='btn btn-danger btn-small'><i class='fam-cancel'></i> Delete</a>
 	 
