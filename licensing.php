@@ -1,4 +1,5 @@
 <?
+#Simple terms and conditions page
 if(!isset($_SESSION)) {
      session_start();
 }
