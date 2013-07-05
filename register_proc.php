@@ -1,15 +1,5 @@
 <?php
-#vars and most of them are global so that functions can share them.
 global $name;
-global $filename;
-global $isloggedin;
-global $userexist;
-global $regstring;
-global $username;
-global $hashpass;
-global $userfile;
-global $isadmin;
- 
 #checks that it was given a username, if not all these function will be inaccessable 
 #fas it returns to items.php or whever you called this from
 if(isset($name)){
@@ -18,14 +8,6 @@ $name = (isset($_GET["user"])?$_GET["user"]:'blank');
 return;
 }
 function register(){
-global $name;
-global $filename;
-global $isloggedin;
-global $userexist;
-global $regstring;
-global $username;
-global $hashpass;
-global $userfile;
 $bday = $_REQUEST["bday"];
 $username = (isset($_REQUEST["user"])?$_REQUEST["user"]:'blank');
 $filename = "userdata/$username.user";
@@ -43,18 +25,13 @@ $regstring = "</br><div class='alert alert-error'>
   <button type='button' class='close' data-dismiss='alert'>&times;</button> <h4 class='alert-heading'>Error!</h4> 
    That username was already taken!
 </div>";
-} else { 
-
+} else {
    file_put_contents($filename, $userinfo);
    $regstring = "</br><div class='alert alert-success'>
   <button type='button' class='close' data-dismiss='alert'>&times;</button> <h4 class='alert-heading'>Success!<i class='icon-ok'></i></h4> 
    Your account has been registered successfully!
 </div>";
-
-
 }
-
-
 }else{
 global $taken;
 $taken = "</br><div class='alert alert-error'>
@@ -63,46 +40,23 @@ $taken = "</br><div class='alert alert-error'>
 </div>";
 }
 }
-
-
-
-
-
-
 function get_userinfo(){
 global $name;
-global $filename;
-global $isloggedin;
-global $userexist;
-global $username;
-global $userfile;
-global $hashpass;
 $filename = "userdata/$username.user";
 	$dir = "userdata/";  
 $filename = "userdata/$username.user";
 $stuff = file_get_contents("$filename", true);
 $userfile = explode("\n", $stuff);
 return;
-
 //Userfile is loaded to each array element
 //0 = Name - String
 //1 = Password - Sha256 hash
 //2 = Birthday - Date from html calender?
 //3 = Last logon - Date/time
 //4 = Admin - ?
-
 }
-
+#Admin function for adding users from admin menu.
 function adduser(){
-global $name;
-global $filename;
-global $isloggedin;
-global $userexist;
-global $regstring;
-global $username;
-global $hashpass;
-global $userfile;
-global $isadmin;
 if (strlen(session_id()) < 1) {
     session_start();
 }
@@ -130,12 +84,5 @@ $userinfo = array(
   <button type='button' class='close' data-dismiss='alert'>&times;</button> <h4 class='alert-heading'>Failure<i class='icon-exclamation-sign'></i></h4> 
    Your account has is not an admin! Nice try! ;D
 </div>";}
-
  }
-
-
-
-
-
-
 ?>

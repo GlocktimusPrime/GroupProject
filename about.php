@@ -1,29 +1,34 @@
+<? if (strlen(session_id()) < 1) {
+		session_start();
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Admin - Branding</title>
-							<? include 'authnav.php';?>
+	<title>Admin - </title>
+							<? include "authnav.php";?>
 			<script type="text/javascript" src="/assets/js/bootstrap-dropdown.js"></script>
 		</div>
 <body>
-<?php #Incomplete change the name of the website and other things.
-admin_changebrand();
-function admin_changebrand(){	   if (strlen(session_id()) < 1) {
-		session_start();
-	}
+<?php
+admin_info();
+function admin_info(){	  
 		if(isset($_SESSION['logged']) && $_SESSION['logged'] == "yes" &&  $_SESSION['isadmin'] = "yes") { 
-			print "	            <div class='container'>
-                <div class='row'>
-                    <div class='span12'>
-	<div class=well>
-<legend>Themeing and Branding</legend>
-</div></div></div></div>";
-			} else { 
 			print "<div class='container'>
                 <div class='row'>
                     <div class='span12'>
+	<legend>Help</legend><div class=well><p style='color:crimson;'>About Us </br></br>
+</p><h2>Devloped by Alex Hughes</h2></div>
+		</div></div></div>";
+			} 
+		else {print "<div class='container'>
+                <div class='row'>
+                    <div class='span12'>
+	<legend>Help</legend><div class=well><p style='color:crimson;'>About Us </br></br>
+</p><h2>Devloped by Alex Hughes</h2></div>
+Help here </p></div>
 <div class=well>
-<legend>Themeing and Branding</legend>
+Help here 
 </div></div></div></div>"; 
 }
 }

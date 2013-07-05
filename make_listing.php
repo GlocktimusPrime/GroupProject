@@ -14,8 +14,6 @@ function toggle() {
 </script>
 <?php
 	function listingstoarray($test2){
-
-	$t = 0;
 if ($dir = opendir('listingdata/')) {
 	$items = array();
 	while (false !== ($file = readdir($dir))) {
@@ -24,14 +22,9 @@ if ($dir = opendir('listingdata/')) {
 		}
 	}
 	closedir($dir);
-}
-
-		
+}	
 return $items;
-			  }
-	
-	
-	
+}
 function addlisting(){
 $allowedExts = array("gif", "jpeg", "jpg", "png");
 $extension = end(explode(".", $_FILES["uploadedfile"]["name"]));
@@ -49,7 +42,6 @@ if ((($_FILES["uploadedfile"]["type"] == "image/gif")
     }
   else
     {
-
     if (file_exists("userimg/" . $_FILES["uploadedfile"]["name"]))
       {
       echo $_FILES["uploadedfile"]["name"] . " already exists. Using default img ";
@@ -69,8 +61,6 @@ else
   echo "Invalid file";
   $itemimg = "::" . "http://placehold.it/350x150";
   }
-	
-	
  $uid = uniqid("", false);
     if(isset($_POST['itemtitle']) && ($_POST['itemdesc'])) { //only do file operations when appropriate
         $itemtitle = $_POST['itemtitle'];
@@ -78,8 +68,6 @@ else
 		$itemcata = $_POST['Category'];
 		$seller = $_SESSION['username'];
 		$itemprice = $_POST['price'];
-	
-	
 		$itemaccept = "";
 		if (isset($_POST['accept'])==true){
 		 foreach($_POST['accept'] as $accept) {
@@ -93,7 +81,6 @@ else
         fwrite($fh, $listinginfo);
         fclose($fh);
     }
-	
 function readcata(){
 $handle = opendir("catadata/");
 $names = array();
@@ -107,9 +94,7 @@ $r = 2;
   $listings = "";
 unset($names[0]);
 unset($names[1]);
-
 foreach($names as $name){
-
 $cataname = str_replace(".txt","::", "$name");
 $catastring = trim($cataname, "::");
 $hiddenname =   trim($name, ".txt");
@@ -122,24 +107,16 @@ if ($fp) {
  foreach($array as $arrays){
   $listings = $listings . $arrays;
  }
-
-
 }
 }
 $arrayoflistings = explode(";;", $listings);
 $l = 0;
 $listing = explode("::",$arrayoflistings[0]);
-
 foreach($arrayoflistings as $list){
 $item = explode("\n", $list);
-
-
 }
-			  }
-
-
+}
 function readlisting4($test2){
-
 	$t = 0;
 if ($dir = opendir('listingdata/')) {
 	$items = array();
@@ -151,22 +128,17 @@ if ($dir = opendir('listingdata/')) {
 	closedir($dir);
 }
 foreach($items as $item) {
-
 $fp3 = fopen("listingdata/$item", 'r');
 if ($fp3) {
    $array = explode("::", fread($fp3, filesize("listingdata/$item")));
-   $titlestring = substr($array[1], 0, 25);
-  
+   $titlestring = substr($array[1], 0, 25); 
 $desstring = substr($array[2], 0, 5000) . "</br>";
 $seller = substr($array[5], 0, 25);
 $picstring = $array[7];
-
 $listingstring = preg_replace("'\.txt$'", "", $item);
 $listingnumber = trim($listingstring , "Listing Number;");
 $itemcata = trim($array[8], ";; ");
 if (stristr($desstring,$test2) !== false || stristr($titlestring,$test2) !== false || stristr($seller,$test2) !== false || stristr($itemcata,$test2) !== false || strpos($array[4],$test2) !== false) {
-
-	$t=1;
    echo " <style>
 .logo { max-height: 150px; max-width: 300px; overflow: hidden; }</style>
 <div class='container'>
@@ -176,7 +148,6 @@ if (stristr($desstring,$test2) !== false || stristr($titlestring,$test2) !== fal
 			$titlestring
 		</h1><hr>For sale by:	<span class='badge'>$seller</span></br>
 Description:<pre>$desstring</pre></br>
-	
 		<span class='label'>Transaction Information</span>
 			<div class='row-fluid'>
 			<div class='span4'>
@@ -206,27 +177,12 @@ Listing ID:
 		</div>
 	</div>
 	</div>
-</div>";
-         
-
-					
-				
-				
-        
-             
-			  
+</div>";	  
  }}
 }
-
-
-
-
-echo "</ul>";
-		
-
-			  }
+echo "</ul>";	
+}
 function readlisting3($test2){
-
 	$t = 0;
 if ($dir = opendir('listingdata/')) {
 	$items = array();
@@ -238,16 +194,13 @@ if ($dir = opendir('listingdata/')) {
 	closedir($dir);
 }
 foreach($items as $item) {
-
 $fp3 = fopen("listingdata/$item", 'r');
 if ($fp3) {
    $array = explode("::", fread($fp3, filesize("listingdata/$item")));
    $titlestring = substr($array[1], 0, 25);
-  
 $desstring = substr($array[2], 0, 5000) . "</br>";
 $seller = substr($array[5], 0, 25);
 $picstring = $array[7];
-
 $listingstring = preg_replace("'\.txt$'", "", $item);
 $listingnumber = trim($listingstring , "Listing Number;");
 $itemcata = trim($array[8], ";; ");
@@ -261,8 +214,7 @@ if (preg_match("/$listingnumber\b/i", "$test2")) {
 		<h1>
 			$titlestring
 		</h1><hr>For sale by:	<span class='badge'>$seller</span></br>
-Description:<pre>$desstring</pre></br>
-	
+Description:<pre>$desstring</pre></br>	
 		<span class='label'>Transaction Information</span>
 			<div class='row-fluid'>
 			<div class='span4'>
@@ -292,33 +244,12 @@ Listing ID:
 		</div>
 	</div>
 	</div>
-</div>";
-         
-
-					
-				
-				
-        
-             
-			  
-} else {
-if ($t<1) {
-$t++;
-    echo "";
+</div>";		  
+} 
 }
 }
-
-
-}
-
-}
-echo "</ul>";
-		
-
-			  }
+echo "</ul>"; }
 function readlisting2($test2){
-
-	$t = 0;
 if ($dir = opendir('listingdata/')) {
 	$items = array();
 	while (false !== ($file = readdir($dir))) {
@@ -329,16 +260,13 @@ if ($dir = opendir('listingdata/')) {
 	closedir($dir);
 }
 foreach($items as $item) {
-
 $fp3 = fopen("listingdata/$item", 'r');
 if ($fp3) {
    $array = explode("::", fread($fp3, filesize("listingdata/$item")));
    $titlestring = substr($array[1], 0, 25);
-  
 $desstring = substr($array[2], 0, 255) . "</br>";
 $seller = substr($array[5], 0, 25);
 $picstring = $array[7];
-
 $listingstring = preg_replace("'\.txt$'", "", $item);
 $listingnumber = trim($listingstring , "Listing Number;");
 $itemcata = trim($array[8], ";; ");
@@ -347,10 +275,8 @@ if (preg_match("/$itemcata\b/i", "$test2")) {
    echo " <style>
 .logo { max-height: 150px; max-width: 300px; overflow: hidden; }</style>
              <li class='span3'>
-		
                 <div class='thumbnail'>	<div align=center class=logo>
-				<img src=$picstring' alt='ad pic'></img>
-                 
+				<img src=$picstring' alt='ad pic'></img>  
 				 </div>
                   <div class='caption'>
                     <h3>$titlestring</h3>
@@ -358,11 +284,7 @@ if (preg_match("/$itemcata\b/i", "$test2")) {
                     <p>Seller: <div align=center class=well>$array[5]</div></p>
 					 <p>Description: <div align=center class='well'>$desstring</div></br></p>
 					<p>Perceived Cash Value:<div align=center class=well> <i class='fam-money'></i> $$array[4]</div> </p>
-					
-					
-				
 						<p>Will accept:<div align=center class=well>$array[3]</div> </p>
-
 						 <script src='bootbox.min.js'></script>
     <script>
         $(document).on('click', '.alert', function(e) {
@@ -371,26 +293,12 @@ if (preg_match("/$itemcata\b/i", "$test2")) {
             });
         });
     </script>
-				
-        
-                  </div>
-                
+</div>
 </li>";
-	
-} else {
-if ($t<1) {
-$t++;
-    echo "";
 }
 }
-
-
-}
-
 }
 echo "</ul>";
-		
-
 			  }
 	function readlisting(){
 		$q=0;
@@ -404,28 +312,22 @@ if ($dir = opendir('listingdata/')) {
 	closedir($dir);
 }  $arrays =  array();
 foreach($items as $item) {
-
 $fp3 = fopen("listingdata/$item", 'r');
 if ($fp3) {
    $array = explode("::", fread($fp3, filesize("listingdata/$item")));
    $titlestring = substr($array[1], 0, 25);
- 
    $arrays = $items;
-
 $desstring = substr($array[2], 0, 255) . "</br>";
 $popdesstring = substr($array[2], 0, 5000) . "</br>";
 $seller = substr($array[5], 0, 25);
 $picstring = $array[7];
-
 $listingstring = preg_replace("'\.txt$'", "", $item);
 $listingnumber = trim($listingstring , "Listing Number;");
 echo " <style>
 .logo { margin-left:auto; margin-right:auto; center; max-height: 150px; max-width: 300px; overflow: hidden; }</style>
-             <li id='toggleText' class='span3'>
-		
+             <li id='toggleText' class='span3'>	
                 <div class='thumbnail'>	<div align=center class=logo>
-				<img src=$picstring' alt='ad pic'></img>
-                 
+				<img src=$picstring' alt='ad pic'></img>            
 				 </div>
                   <div class='caption'>
                     <h3>$titlestring</h3>
@@ -441,8 +343,7 @@ echo " <style>
                 </form>";
 #below is the info that pops up with bootbox
 					 $popupinfo[$q] = "  <div>    <div class='thumbnail'>	<div align=center class=logo>
-				<img src=$picstring' alt='ad pic'></img>
-                 
+				<img src=$picstring' alt='ad pic'></img>       
 				 </div>
                   <div class='caption'>
                     <h3>$titlestring</h3>
@@ -450,26 +351,11 @@ echo " <style>
                     <p>Seller: <div align=center class=well>$array[5]</div></p>
 					 <p>Description: <div align=center class='well'>$popdesstring</div></br></p>
 					<p>Perceived Cash Value:<div align=center class=well> <i class='fam-money'></i> $$array[4]</div> </p>
-						<p>Will accept:<div align=center class=well>$array[3]</div> </p></div>
-				
-		
-			"; 			
-						
-						
-			?>
-			<?php  echo"
-	
-</li>";$q++;
-			  
-
+						<p>Will accept:<div align=center class=well>$array[3]</div> </p></div>"; 			
+						 echo"</li>";
+						 $q++;
 }
-
 }
-
 	echo "</ul>";	
-  return $arrays;
-			  }
-	
-	
-	
+  return $arrays;}
 	?>

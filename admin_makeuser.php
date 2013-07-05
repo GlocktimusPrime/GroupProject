@@ -2,44 +2,27 @@
 <?php
 $regstring = "";
 if(isset($_REQUEST['submit'])) {
-include 'login.php';
+include 'register_proc.php';
 adduser();
 }
-
-							function  includenav(){							
-							include 'authnav.php';							}
-							
+function  includenav(){							
+include 'authnav.php';}
 ?>
 <html lang="en">
 <head>
 	<title>Login</title>
-
-		
-						<?php
-		 includenav()		
-				?>		
-		</div>
-			<script type="text/javascript" src="/assets/js/bootstrap-dropdown.js"></script>
-
-		</div>
-	
-	
-	
-
-			
-	            <div class="container">
-                <div class="row">
-                    <div class="span12">
-            
+<?php includenav();?>		
+</div>
+<script type="text/javascript" src="/assets/js/bootstrap-dropdown.js"></script>
+</div>
+<div class="container">
+<div class="row">
+  <div class="span12">        
 <div class="well">
-
-
 <!-- Form Name -->
 <legend>Add User</legend>
-
 <!-- Text input-->
 <form action="<?php $_PHP_SELF ?>" method="POST">
-
   Name:  &nbsp;&nbsp; <input type="text" name="user" /></br>
   Password:&nbsp;&nbsp;&nbsp;	 <input type="password" name="password" /></br>
  Birthday:  &nbsp;&nbsp;&nbsp;<div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
@@ -49,38 +32,24 @@ adduser();
   Is Admin?:&nbsp;&nbsp;  <select name="isadmin" class="selectpicker" data-style="btn-primary"><option value="0">No</option><option value="1">Yes</option></select>
  </br>
  <button type="submit" id="singlebutton" name="submit" value="1" class="btn-large btn-inverse">Submit</button>
-
- 
-
- 
     </form>
 </div>
 </br>
 <?php 
-
-
 echo $regstring;
  ?>
- </div>
-  </div>
-</div>
-
-
-                    </div>
-                </div>
-            </div>
-
-
+ </div></div></div></div></div></div>
 <hr/>
  <div class="container">
-<div class=" footer">  
-<span><a href="./" ><span class="label label-inverse">Home</span></a></span>
-<span><a href="http://www.gblearn.com" >GBLearn</a></span>
+<div class=" footer"> 
+<span><a href="" ><span class="label label-inverse">Home</span></a></span>
 <span><a href="help.php" >Help</a></span>
+<span>
+<?php
+include('footer.php');
+?>
+</span> 	
 </div>     
 	</div>
-</body>
-
-
-
+  </body>
 </html>

@@ -5,38 +5,22 @@ if(isset($_GET['submit'])) {
 include 'register_proc.php';
 register();
 }
-	function  includenav(){							
-							include 'authnav.php';							}
-?>
-<?php
-
-
-
+function  includenav(){include 'authnav.php';}
 ?>
 <html lang="en">
-
 			<? includenav();?>
 			<script type="text/javascript" src="/assets/js/bootstrap-dropdown.js"></script>
-		</div>
-	
-		
-	
-
-			
+		</div>	
 	            <div class="container">
                 <div class="row">
                     <div class="span12">
                      <form class="form-horizontal">
 <fieldset>
-
-<!-- Form Name -->
  <div class="well">
-<legend>Register</legend>
-
-<!-- Text input-->       
+<legend>Register</legend>    
     <script src="js/jquery-1.10.0.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
-	<script>
+	<script> // Bootstrap js date picker code
 		$(function(){
 			window.prettyPrint && prettyPrint();
 			$('#dp1').datepicker({
@@ -46,9 +30,7 @@ register();
 			$('#dp3').datepicker();
 			$('#dp3').datepicker();
 			$('#dpYears').datepicker();
-			$('#dpMonths').datepicker();
-			
-			
+			$('#dpMonths').datepicker();	
 			var startDate = new Date(2013,1,1);
 			var endDate = new Date(2013,1,25);
 			$('#dp4').datepicker()
@@ -100,28 +82,19 @@ register();
         }).data('datepicker');
 		});
 	</script>
-
 </script>
 <div class="control-group">
   <label class="control-label" for="nameinput">Username</label>
   <div class="controls">
     <input id="user" name="user" type="text" placeholder="" class="input-xlarge" required="">
-    
   </div>
-
-          
-
 </div>
-
-<!--Password input-->
 <div class="control-group">
   <label class="control-label" for="passwordinput">Password</label>
   <div class="controls">
-    <input id="password" name="password" type="password" placeholder="" class="input-xlarge" required="">
-    
+    <input id="password" name="password" type="password" placeholder="" class="input-xlarge" required=""> 
   </div>
     </div>
-	<!-- Birthday Input -->
   <div class="control-group">
   <label class="control-label" for="bdayinput">Birthday</label>
    <div class="controls">
@@ -130,41 +103,29 @@ register();
   <span class="add-on"><i class="icon-th"></i></span>
 </div>
     </div>
- 
   </div>
- 
-<!--Submit Button -->
 <div class="control-group">
   <label class="control-label" for="singlebutton">Submit</label>
   <div class="controls">
-
 <form action="<?=$_SERVER['PHP_SELF'];?>" method="post">
 <button type="submit" id="singlebutton" name="submit" value="1" class="btn-large btn-inverse">Go</button>
 </form>
-
-     </div>
-
+</div>
 </br>
 <?php 
 global $taken;
 print $taken;
 print $regstring; ?>
-
   </div>
 </div>
-
 </fieldset>
 </form>
-
-                    </div>
-                </div>
-            </div>
-
-
+</div>
+</div>
+</div>
 <hr/>
  <div class="container">
 <div class=" footer"> 
- 
 <span><a href="" ><span class="label label-inverse">Home</span></a></span>
 <span><a href="help.php" >Help</a></span>
 <span>
@@ -175,7 +136,4 @@ include('footer.php');
 </div>     
 	</div>
 </body>
-
-
-
 </html>

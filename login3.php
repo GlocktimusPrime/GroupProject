@@ -11,7 +11,6 @@ $p = $password1;
 $filename = "userdata/$id.user";
  if ( file_exists($filename)== true){
 #add if file exists here
-
 $urls="$filename";
 $page = join(" ",file("$urls"));
 $kw = explode("\n", $page);
@@ -32,9 +31,7 @@ if(session_id() == '') {
       $_SESSION['username'] = "$u"; 
       $_SESSION['logged'] = "yes" ;
 	  echo    "</br><div class='alert alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button> <h4 class='alert-heading'>Success!<i class='icon-ok'></i></h4> 
-   Successfully logged in!<META HTTP-EQUIV='refresh' CONTENT='1;URL=index.php'>
-</div>";
-
+   Successfully logged in!<META HTTP-EQUIV='refresh' CONTENT='1;URL=index.php'></div>";
       }else#if they got the username or passowrd wrong it prints this
 	  { 
       print "</br><div class='alert alert-error'>
@@ -43,16 +40,11 @@ if(session_id() == '') {
 </div>"; 
      }  
      exit();
-  }
-  else
-	  { 
+  } else { 
       print "</br><div class='alert alert-error'>
   <button type='button' class='close' data-dismiss='alert'>&times;</button> <h4 class='alert-heading'>Failure!<i class='icon-remove'></i></h4> 
-   Username or password incorrect!<META HTTP-EQUIV='refresh' CONTENT='1;URL=user_logon.php'>
-</div>"; 
+   Username or password incorrect!<META HTTP-EQUIV='refresh' CONTENT='1;URL=user_logon.php'></div>"; 
      }  
   }
   }
 ?>
-
- 
