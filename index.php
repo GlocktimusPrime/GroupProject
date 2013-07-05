@@ -2,11 +2,15 @@
 	if(!isset($_SESSION)) {
 		session_start();
 	}
+	#calls functions for mainnav and title
 	include 'title.php';
 	include 'make_listing.php';
 	$string1 = "Barter Brothers";
 	$items = listingstoarray(" ");
 	$test2 = "";
+	# This loop calls the listings from the text files, using explode to create an arrat, then using substr
+	# to call the different data feilds from the text file, and set character limits as required for the random 
+	#listings on the main page. 
 	foreach($items as $item) {
 		$fp3 = fopen("listingdata/$item", 'r');	
 		if ($fp3) {
@@ -18,11 +22,12 @@
 			$listingstring = preg_replace("'\.txt$'", "", $item);
 			$listingnumber = trim($listingstring , "Listing Number;");
 			$itemcata = trim($array[8], ";; ");	
+			#
 			if (preg_match("/$itemcata\b/i", "$test2") == false) {
 				$test5 = "        <div class='thumbnail'>	<div align=center class=logo>
 				<img src=$picstring' alt='ad pic'></img>
 				 </div>
-                  <div class='caption'>
+	          <div class='caption'>
                     <h3>$titlestring</h3></div>
 					<h5>Listing ID: $listingnumber</h5>
                     <p>Seller: <div align=center class=well>$array[5]</div></p>
@@ -48,6 +53,7 @@
                             <div style='width : auto;'><br>
   <div class="span10" style='width : auto;'>
                 <?php
+                #This reads each listing fron the file and creates each of the caption boxes
 	$items = readlisting();
 	foreach($items as $item) {
 		$fp3 = fopen("listingdata/$item", 'r');	
