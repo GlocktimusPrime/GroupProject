@@ -1,4 +1,5 @@
 <?
+# Simple Text Page listing terms and contitions. 
 if(!isset($_SESSION)) {
      session_start();
 }
@@ -12,6 +13,7 @@ if(!isset($_SESSION)) {
 		</div>
 <body>
 <?php
+#Function for the login to check if logen in, and if an admin.
 admin_help();
 function admin_help(){
 		if(isset($_SESSION['logged']) && $_SESSION['logged'] == "yes" &&  $_SESSION['isadmin'] = "yes") { 
